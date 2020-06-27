@@ -13,22 +13,21 @@
 				</div>
 			</div>
 			<div class="extra content">
-				<form class="ui reply form">
-			    <div class="field">
-			    	<div class="ui fluid icon input">
-			    		<input type="text" placeholder="Message">
-				      <i class="bordered inverted orange edit icon"></i>
-				    </div>
-			    </div>
-			    
-			  </form>
+				<%= form_for(@message, html: { class: "ui reply form", role: "form" }, url: message_path) do |f| %>
+					<div class="field">
+				    	<div class="ui fluid icon input">
+				    		<%= f.text_field :body %>
+					      <%= f.button '<i class="bordered inverted orange edit icon"></i>'.html_safe %>
+					    </div>
+				  </div>
+				<% end %>
 			</div>
 		</div>
 	</div>
 
 	<div class="four wide column">
 		<div class="ui fluid raised card chatbox">
-  			<div class="content">
+  		<div class="content">
 				<div class="ui inverted vertical menu">
 				  <a class="active item">
 				    Home
